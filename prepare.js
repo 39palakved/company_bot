@@ -5,10 +5,13 @@ import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { PineconeStore } from "@langchain/pinecone";
 import { OpenAIEmbeddings } from "@langchain/openai";
-
+//import { HuggingFaceInferenceEmbeddings } from "langchain/embeddings/hf";
 import { Pinecone as PineconeClient } from "@pinecone-database/pinecone";
 
-
+//const embeddings = new HuggingFaceInferenceEmbeddings({
+  ///apiKey: process.env.HUGGINGFACE_API_KEY, 
+ // model: "sentence-transformers/all-MiniLM-L6-v2"
+//});
 const embeddings = new OpenAIEmbeddings({
   model: "text-embedding-3-small", 
   
