@@ -7,13 +7,21 @@ import { PineconeStore } from "@langchain/pinecone";
 import { OpenAIEmbeddings } from "@langchain/openai";
 
 import { Pinecone as PineconeClient } from "@pinecone-database/pinecone";
+//import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
 
 
-const embeddings = new OpenAIEmbeddings({
-  model: "text-embedding-3-small", 
+
+// const embeddings = new OpenAIEmbeddings({
+//   model: "text-embedding-3-small", 
   
-  // READING API FROM .ENV IF WE ARE WRITING IN PROPER FORMAT IN ENV WE DONT NEET TO IMPORT HERE FROM ENV 
-});
+//   // READING API FROM .ENV IF WE ARE WRITING IN PROPER FORMAT IN ENV WE DONT NEET TO IMPORT HERE FROM ENV 
+// });
+// const embeddings = new HuggingFaceInferenceEmbeddings({
+//   apiKey: process.env.HUGGINGFACE_API_KEY, 
+//   model: "sentence-transformers/all-MiniLM-L6-v2"
+// });
+
+
 const pinecone = new PineconeClient({
      apiKey: process.env.PINECONE_API_KEY
 });
