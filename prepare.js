@@ -5,7 +5,7 @@ import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { PineconeStore } from "@langchain/pinecone";
 import { OpenAIEmbeddings } from "@langchain/openai";
-
+//import { HuggingFaceInferenceEmbeddings } from "langchain/embeddings/hf";
 import { Pinecone as PineconeClient } from "@pinecone-database/pinecone";
 import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
 
