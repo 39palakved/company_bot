@@ -7,7 +7,7 @@ import { PineconeStore } from "@langchain/pinecone";
 import { OpenAIEmbeddings } from "@langchain/openai";
 
 import { Pinecone as PineconeClient } from "@pinecone-database/pinecone";
-//import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
+import { HuggingFaceInferenceEmbeddings } from "@langchain/community/embeddings/hf";
 
 
 
@@ -16,11 +16,10 @@ import { Pinecone as PineconeClient } from "@pinecone-database/pinecone";
   
 //   // READING API FROM .ENV IF WE ARE WRITING IN PROPER FORMAT IN ENV WE DONT NEET TO IMPORT HERE FROM ENV 
 // });
-// const embeddings = new HuggingFaceInferenceEmbeddings({
-//   apiKey: process.env.HUGGINGFACE_API_KEY, 
-//   model: "sentence-transformers/all-MiniLM-L6-v2"
-// });
-
+ const embeddings = new HuggingFaceInferenceEmbeddings({
+  apiKey: process.env.HUGGINGFACE_API_KEY, 
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+});
 
 const pinecone = new PineconeClient({
      apiKey: process.env.PINECONE_API_KEY
@@ -34,10 +33,10 @@ export const vectorStore = await PineconeStore.fromExistingIndex(embeddings,{
 })
 export async function indexTheDocument(filePath) {
  const loader =  new PDFLoader(filePath,{splitPages:false})
- const doc = await  loader.load()  // give each page in diff object
+ const doc = await  loader.load() 
 
 
- //console.log(doc[0].pageContent)
+ 
 
  const textSplitter = new RecursiveCharacterTextSplitter({
     chunkSize: 500,
@@ -51,6 +50,6 @@ export async function indexTheDocument(filePath) {
     }
  })
  await vectorStore.addDocuments(document)
- //console.log(texts)
+
 }
 

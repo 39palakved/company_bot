@@ -1,3 +1,3 @@
  import { indexTheDocument } from "./prepare.js";
- const filePath  = './Leave-and-Holiday-Policy.pdf'
+ const filePath  = './Internship ENgagement Letter.pdf'
  indexTheDocument(filePath)
